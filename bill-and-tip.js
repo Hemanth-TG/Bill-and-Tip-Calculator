@@ -1,3 +1,15 @@
+function tips5() {
+                            document.getElementById("tip").value="5";
+                        }
+function tips10() {
+                            document.getElementById("tip").value="10";
+                        }
+function tips15() {
+                            document.getElementById("tip").value="15";
+                        }
+function tips20() {
+                            document.getElementById("tip").value="20";
+                        }
 const calculate= () => {
                         const bill=Number(document.getElementById("bill").value.trim());
                         const tipPercent=Number(document.getElementById("tip").value.trim());
@@ -6,6 +18,7 @@ const calculate= () => {
                             document.getElementById("result").innerText="Please enter valid poisitve numbers!";
                             return;
                         }
+                        
                         const tip=bill*(tipPercent/100);
                         const total=bill+tip;
                         const perPerson=total/persons;
