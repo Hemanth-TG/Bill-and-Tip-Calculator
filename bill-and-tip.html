@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill and Tips Calculator</title>
+    <link rel="stylesheet" href="bill-and-tip.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+</head>
+<body style="background-color: rgba(0, 0, 0, 0.92); color: white;">
+            <div class="container">
+                <h2>Tip & Bill Split Calculator</h2>
+                <p>Use this calculator to split bill among your friends, families, etc.!</p>
+                <input type="number" name="" id="bill" placeholder="Bill Amount"><br><br>
+                <input type="number" id="tip" placeholder="Tips (%)"><br><br>
+                <button class="tip-percent" onclick="tip()">5%</button><button class="tip-percent">10%</button><button class="tip-percent">15%</button><button class="tip-percent">20%</button>
+                <input type="number" name="" id="people" placeholder="No. of people"><br><br>
+                <button onclick="calculate()">Calculate</button>
+                <h3 id="result"></h3>
+            </div>
+                <script>
+                    const calculate= () => {
+                        const bill=Number(document.getElementById("bill").value.trim());
+                        const tipPercent=Number(document.getElementById("tip").value.trim());
+                        const persons=Number(document.getElementById("people").value.trim());
+                        if(!bill || bill<=0 || tipPercent<0 || persons<=0 ) {
+                            document.getElementById("result").innerText="Please enter valid poisitve numbers!";
+                            return;
+                        }
+                        const tip=bill*(tipPercent/100);
+                        const total=bill+tip;
+                        const perPerson=total/persons;
+                        
+                        // document.getElementById("result").innerText=`Total: ₹${total.toFixed(2)} | Each Pays: ₹${perPerson.toFixed(2)}`;
+                        document.getElementById("result").innerText =
+  `Bill: ₹${bill.toFixed(2)} | Tip: ₹${tip.toFixed(2)}\nTotal: ₹${total.toFixed(2)} | Each Pays: ₹${perPerson.toFixed(2)}`;
+
+                    }
+    </script>
+</body>
+</html>
